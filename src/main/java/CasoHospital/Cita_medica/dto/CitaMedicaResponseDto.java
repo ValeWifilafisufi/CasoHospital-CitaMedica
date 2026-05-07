@@ -12,10 +12,10 @@ import java.time.LocalTime;
 @NoArgsConstructor
 public class CitaMedicaResponseDto {
 
-    private Long num_cita;
-    private Long folio_bono;
-    private Long num_registro;
-    private Long num_run;
+    private Long numCita;
+    private Long folioBono;
+    private Long numRegistro;
+    private Long numRun;
     private LocalDate fechaCita;
     private LocalTime horaCita;
     private String estadoCita;
