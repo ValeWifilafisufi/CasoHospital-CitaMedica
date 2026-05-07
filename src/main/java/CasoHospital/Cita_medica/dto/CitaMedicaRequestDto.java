@@ -1,13 +1,17 @@
 package CasoHospital.Cita_medica.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
-
-import java.math.BigDecimal;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.time.LocalTime;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class CitaMedicaRequestDto {
 
