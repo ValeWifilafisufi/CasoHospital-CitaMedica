@@ -5,6 +5,8 @@ import CasoHospital.Cita_medica.model.CitaMedica;
 import CasoHospital.Cita_medica.repository.CitaMedicaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
@@ -73,7 +75,7 @@ public class CitaMedicaService {
         return citaMedicaRepository.finByNumRun(run);
     }
 
-    public List<CitaMedicaResponseDto> buscarPorCita(LocalTime fecha){
+    public List<CitaMedicaResponseDto> buscarPorCita(LocalDate fecha){
         return citaMedicaRepository.findByFechaCita(fecha);
     }
 }
