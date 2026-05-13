@@ -64,18 +64,30 @@ public class CitaMedicaService {
 
     //Busqueda personalizada
     public List<CitaMedicaResponseDto> buscarPorFolio(Long folio){
-        return citaMedicaRepository.finByFolioBono(folio);
+        return citaMedicaRepository.findByFolioBono(folio)
+                .stream()
+                .map(this::mapToDto)
+                .collect(Collectors.toList());
     }
 
     public List<CitaMedicaResponseDto> buscarPorNumRegistro(Long nro){
-        return citaMedicaRepository.finByNumRegistro(nro);
+        return citaMedicaRepository.findByNumRegistro(nro)
+                .stream()
+                .map(this::mapToDto)
+                .collect(Collectors.toList());
     }
 
-    public List<CitaMedicaResponseDto> buscarNumRum(Long run){
-        return citaMedicaRepository.finByNumRun(run);
+    public List<CitaMedicaResponseDto> buscarNumRum(String run){
+        return citaMedicaRepository.findByNumRun(run)
+                .stream()
+                .map(this::mapToDto)
+                .collect(Collectors.toList());
     }
 
     public List<CitaMedicaResponseDto> buscarPorCita(LocalDate fecha){
-        return citaMedicaRepository.findByFechaCita(fecha);
+        return citaMedicaRepository.findByFechaCita(fecha)
+                .stream()
+                .map(this::mapToDto)
+                .collect(Collectors.toList());
     }
 }

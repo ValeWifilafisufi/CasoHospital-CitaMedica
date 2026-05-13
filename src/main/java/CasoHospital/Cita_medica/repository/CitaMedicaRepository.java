@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface CitaMedicaRepository extends JpaRepository<CitaMedica, Long> {
 
-    List<CitaMedicaResponseDto> finByFolioBono(Long folioBono);
-    List<CitaMedicaResponseDto> finByNumRegistro (Long numRegistro);
-    List<CitaMedicaResponseDto> finByNumRun(Long numRun);
-    List<CitaMedicaResponseDto> findByFechaCita(LocalDate fecha);
+    List<CitaMedica> findByFolioBono(Long folioBono);
+    List<CitaMedica> findByNumRegistro (Long numRegistro);
+    List<CitaMedica> findByNumRun(String numRun);
+    List<CitaMedica> findByFechaCita(LocalDate fecha);
 
 
 //    private Long num_cita;

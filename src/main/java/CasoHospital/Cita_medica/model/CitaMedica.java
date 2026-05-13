@@ -30,7 +30,7 @@ public class CitaMedica {
     private Long numRegistro;
 
     @Column(name = "num_run", nullable = false)
-    private Long numRun;
+    private String numRun;
 
     @Column(nullable = false)
     private LocalDate fechaCita;

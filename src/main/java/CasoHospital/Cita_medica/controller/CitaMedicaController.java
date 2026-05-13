@@ -24,7 +24,7 @@ public class CitaMedicaController {
         return ResponseEntity.ok(citaMedicaService.obtenerTodas());
     }
 
-    @GetMapping("/cita/{}")
+    @GetMapping("/cita/{cita}")
     public ResponseEntity<CitaMedicaResponseDto> buscarPorNroCita(@PathVariable Long nro){
         return citaMedicaService.buscarPorNroCita(nro).map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -41,12 +41,12 @@ public class CitaMedicaController {
     }
 
     @GetMapping("/run/{num}")
-    public ResponseEntity<List<CitaMedicaResponseDto>> buscarPorNum(@PathVariable Long num){
+    public ResponseEntity<List<CitaMedicaResponseDto>> buscarPorNum(@PathVariable String num){
         return ResponseEntity.ok(citaMedicaService.buscarNumRum(num));
     }
-    @GetMapping("/hora/{hora}")
-    public ResponseEntity<List<CitaMedicaResponseDto>> buscarPorFecha(@PathVariable LocalDate date){
-        return ResponseEntity.ok(citaMedicaService.buscarPorCita(date));
+    @GetMapping("/fecha/{fecha}")
+    public ResponseEntity<List<CitaMedicaResponseDto>> buscarPorFecha(@PathVariable LocalDate fecha){
+        return ResponseEntity.ok(citaMedicaService.buscarPorCita(fecha));
     }
 
     @PostMapping("/{run}")
@@ -56,12 +56,19 @@ public class CitaMedicaController {
     }
 
     @PutMapping("{nro}")
-    public ResponseEntity<CitaMedicaResponseDto> actualizar(@PathVariable Long nro,
-                                                            @Valid @RequestBody CitaMedicaResponseDto cita){
+    public ResponseEntity<CitaMedica> actualizar(@PathVariable Long nro,
+                                                            @Valid @RequestBody CitaMedica cita){
         return citaMedicaService.actualizar(nro, cita).map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("{nro}")
-    public ResponseEntity<Void> 
+    public ResponseEntity<Void> eliminar(@PathVariable Long nro){
+        if (citaMedicaService.buscarPorNroCita(nro).isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        citaMedicaService.eliminar(nro);
+        return ResponseEntity.noContent().build();
+    }
+
 }

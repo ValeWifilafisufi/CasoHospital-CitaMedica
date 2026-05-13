@@ -15,7 +15,7 @@ public class CitaMedicaResponseDto {
     private Long numCita;
     private Long folioBono;
     private Long numRegistro;
-    private Long numRun;
+    private String numRun;
     private LocalDate fechaCita;
     private LocalTime horaCita;
     private String estadoCita;
