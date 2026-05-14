@@ -17,10 +17,6 @@ import java.time.LocalTime;
 
 public class CitaMedicaRequestDto {
 
-    @NotNull(message = "El numero de cita no puede estar vacio")
-    @Positive(message = "El numero de cita debe ser mayor a 0")
-    private Long num_cita;
-
     @NotNull(message = "El numero de folio del bono no puede estar vacio")
     @Positive(message = "El numero de folio del bono debe ser mayor a 0")
     private Long folio_bono;

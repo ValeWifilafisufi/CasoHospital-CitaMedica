@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.annotation.processing.Generated;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -21,6 +22,7 @@ import java.time.LocalTime;
 public class CitaMedica {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long numCita;
 
     @Column(name = "folio_bono", nullable = false)

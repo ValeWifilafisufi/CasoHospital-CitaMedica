@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 @RestController
@@ -24,7 +23,7 @@ public class CitaMedicaController {
         return ResponseEntity.ok(citaMedicaService.obtenerTodas());
     }
 
-    @GetMapping("/cita/{cita}")
+    @GetMapping("/cita/{nro}")
     public ResponseEntity<CitaMedicaResponseDto> buscarPorNroCita(@PathVariable Long nro){
         return citaMedicaService.buscarPorNroCita(nro).map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -49,10 +48,10 @@ public class CitaMedicaController {
         return ResponseEntity.ok(citaMedicaService.buscarPorCita(fecha));
     }
 
-    @PostMapping("/{run}")
-    public ResponseEntity<CitaMedicaResponseDto> crear(@Valid @RequestBody CitaMedica cita){
-        CitaMedicaResponseDto dto = citaMedicaService.guardar(cita);
-        return ResponseEntity.status(201).body(dto);
+    @PostMapping
+    public ResponseEntity<CitaMedicaResponseDto> crear(@Valid @RequestBody CitaMedicaRequestDto dto){
+        CitaMedicaResponseDto respuesta = citaMedicaService.guardar(dto);
+        return ResponseEntity.status(201).body(respuesta);
     }
 
     @PutMapping("{nro}")
@@ -70,5 +69,4 @@ public class CitaMedicaController {
         citaMedicaService.eliminar(nro);
         return ResponseEntity.noContent().build();
     }
-
 }

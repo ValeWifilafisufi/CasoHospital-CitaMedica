@@ -14,15 +14,4 @@ public interface CitaMedicaRepository extends JpaRepository<CitaMedica, Long> {
     List<CitaMedica> findByNumRun(String numRun);
     List<CitaMedica> findByFechaCita(LocalDate fecha);
 
-
-//    private Long num_cita;
-//    private Long folio_bono;
-//    private Long num_registro;
-//    private Long num_run;
-//    private LocalDate fechaCita;
-//    private LocalTime horaCita;
-//    private String estadoCita;
-//    private BigDecimal valorCita;
-
-
 }
