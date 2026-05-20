@@ -27,13 +27,13 @@ public class CitaMedicaRequestDto {
 
     @NotBlank(message = "El numero de rut del paciente no puede estar vacio")
     @Pattern(
-            regexp = "^[0-9]{7,8}-[0-9kK]$",
-            message =  "El run debe tener formato 12345678-9 o 12345678-K"
+            regexp = "^[0-9]{1,2}\\.[0-9]{3}\\.[0-9]{3}-[0-9kK]$",
+            message = "El run debe tener formato 12.345.678-9"
     )
     private String num_run;
 
     @NotNull(message = "La fecha de la cita no puede estar vacia")
-    @JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaCita;
 
      @NotNull(message = "La hora de la cita no puede estar vacia")
