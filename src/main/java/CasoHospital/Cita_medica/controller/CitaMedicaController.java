@@ -7,7 +7,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import CasoHospital.Cita_medica.dto.CitaMedicaRequestDto;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -54,14 +54,14 @@ public class CitaMedicaController {
         return ResponseEntity.status(201).body(respuesta);
     }
 
-    @PutMapping("{nro}")
+    @PutMapping("/{nro}")
     public ResponseEntity<CitaMedica> actualizar(@PathVariable Long nro,
                                                             @Valid @RequestBody CitaMedica cita){
         return citaMedicaService.actualizar(nro, cita).map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping("{nro}")
+    @DeleteMapping("/{nro}")
     public ResponseEntity<Void> eliminar(@PathVariable Long nro){
         if (citaMedicaService.buscarPorNroCita(nro).isEmpty()){
             return ResponseEntity.notFound().build();

@@ -6,10 +6,11 @@ import CasoHospital.Cita_medica.model.CitaMedica;
 import CasoHospital.Cita_medica.repository.CitaMedicaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
+import CasoHospital.Cita_medica.webclient.BonoClient;
+import CasoHospital.Cita_medica.webclient.PacienteClient;
+import CasoHospital.Cita_medica.webclient.StaffClient;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;

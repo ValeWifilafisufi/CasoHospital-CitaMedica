@@ -7,12 +7,11 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.processing.Generated;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
-
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
