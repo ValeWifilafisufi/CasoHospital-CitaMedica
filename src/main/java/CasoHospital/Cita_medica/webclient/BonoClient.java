@@ -18,7 +18,7 @@ public class BonoClient {
 
     public Map<String, Object> obtenerBono(Long folio) {
         return webClient.get()
-                .uri("/fono/{folio}", folio)
+                .uri("/folio/{folio}", folio)
                 .retrieve()
                 .bodyToMono(Map.class)
                 .block();
